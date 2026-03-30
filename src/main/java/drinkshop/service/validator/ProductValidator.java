@@ -18,6 +18,9 @@ public class ProductValidator implements Validator<Product> {
         if (product.getPret() <= 0)
             errors += "Pret invalid!\n";
 
+        if (product.getNume().length() > 255)
+            errors += "Numele nu poate fi mai lunf de 255 de caractere!\n";
+
         if (!errors.isEmpty())
             throw new ValidationException(errors);
     }
