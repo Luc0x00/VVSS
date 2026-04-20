@@ -158,7 +158,13 @@ public class DrinkShopController {
 
     @FXML
     private void onFilterCategorie() {
-        productList.setAll(service.filtreazaDupaCategorie(comboProdCategorie.getValue()));
+        productList.setAll(
+                service.filtreazaDupaCategorie(
+                        comboProdCategorie.getValue(),
+                        null,
+                        Double.MAX_VALUE
+                )
+        );
     }
 
     @FXML

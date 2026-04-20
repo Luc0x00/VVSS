@@ -46,8 +46,10 @@ public class DrinkShopService {
         return productService.getAllProducts();
     }
 
-    public List<Product> filtreazaDupaCategorie(CategorieBautura categorie) {
-        return productService.filterByCategorie(categorie);
+    public List<Product> filtreazaDupaCategorie(CategorieBautura categorie,
+                                                String keyword,
+                                                double maxPrice) {
+        return productService.filterByCategorie(categorie, keyword, maxPrice);
     }
 
     public List<Product> filtreazaDupaTip(TipBautura tip) {
