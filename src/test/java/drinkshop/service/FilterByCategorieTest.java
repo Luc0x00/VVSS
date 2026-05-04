@@ -1,6 +1,7 @@
 package drinkshop.service;
 
 import drinkshop.domain.*;
+import drinkshop.service.validator.ProductValidator;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ class FilterByCategorieTest {
     @BeforeEach
     void setUp() {
         // service-ul poate fi creat fără repo dacă filterByCategorie nu îl folosește
-        service = new ProductService(null);
+        service = new ProductService(null, new ProductValidator());
     }
 
     // ── Helper ────────────────────────────────────────────────────────────────

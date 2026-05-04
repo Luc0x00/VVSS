@@ -3,6 +3,7 @@ package drinkshop.service;
 import drinkshop.domain.*;
 import drinkshop.repository.Repository;
 import drinkshop.repository.file.FileProductRepository;
+import drinkshop.service.validator.ProductValidator;
 import org.junit.jupiter.api.*;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,7 +22,7 @@ class ProductAddTest {
     void setUp() throws IOException {
         Files.write(Paths.get(TEST_FILE), new byte[0]);
         repo = new FileProductRepository(TEST_FILE);
-        service = new ProductService(repo);
+        service = new ProductService(repo, new ProductValidator());
     }
 
     @Test
