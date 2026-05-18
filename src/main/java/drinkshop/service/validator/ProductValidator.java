@@ -12,7 +12,7 @@ public class ProductValidator implements Validator<Product> {
         if (product.getId() <= 0)
             errors += "ID invalid!\n";
 
-        if (product.getNume() == null || product.getNume().isBlank())
+        if (product.getNume() == null || product.getNume().trim().isEmpty())
             errors += "Numele nu poate fi gol!\n";
 
         if (product.getPret() <= 0)
@@ -21,7 +21,7 @@ public class ProductValidator implements Validator<Product> {
         if (product.getNume().length() > 255)
             errors += "Numele nu poate fi mai lunf de 255 de caractere!\n";
 
-        if (!errors.isEmpty())
+        if (errors.length() > 0)
             throw new ValidationException(errors);
     }
 }

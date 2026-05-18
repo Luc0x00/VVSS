@@ -12,7 +12,7 @@ public class StocValidator implements Validator<Stoc> {
         if (stoc.getId() <= 0)
             errors += "ID invalid!\n";
 
-        if (stoc.getIngredient() == null || stoc.getIngredient().isBlank())
+        if (stoc.getIngredient() == null || stoc.getIngredient().trim().isEmpty())
             errors += "Ingredient invalid!\n";
 
         if (stoc.getCantitate() < 0)
@@ -24,7 +24,7 @@ public class StocValidator implements Validator<Stoc> {
         if (stoc.getCantitate() < stoc.getStocMinim())
             errors += "Cantitatea este sub stocul minim!\n";
 
-        if (!errors.isEmpty())
+        if (errors.length() > 0)
             throw new ValidationException(errors);
     }
 }
